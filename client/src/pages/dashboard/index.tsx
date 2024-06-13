@@ -1,4 +1,15 @@
-export const Dashboard = () => {
+import { useUser } from "@clerk/clerk-react"
+import { FinancialRecordForm } from "./financial-record-form";
+import { FinancialRecordList } from "./financial-record-list";
 
-return <h1>Dashboard</h1>
+export const Dashboard = () => {
+    const { user } = useUser();
+
+    return (
+        <div className="dashboard-container">
+            <h1> Welcome { user?.firstName}! Here are Your Finances! </h1>
+            <FinancialRecordForm />
+            <FinancialRecordList />
+        </div>
+    )
 }
