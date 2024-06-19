@@ -7,6 +7,7 @@ export const FinancialRecordForm = () => {
     const [amount, setAmount] = useState<string>("");
     const [category, setCategory] = useState<string>("");
     const [paymentMethod, setPaymentMethod] = useState<string>("");
+    // const { addRecord } = useFinancialRecords();
 
     const { user } = useUser();
 
@@ -21,12 +22,14 @@ export const FinancialRecordForm = () => {
             category: category,
             paymentMethod: paymentMethod
         }
+
+        // addRecord(newRecord);
+        setDescription("")
+        setAmount("")
+        setCategory("")
+        setPaymentMethod("")
     };
 
-    setDescription("")
-    setAmount("")
-    setCategory("")
-    setPaymentMethod("")
 
     return (
     <div className="form-container">
@@ -86,7 +89,7 @@ export const FinancialRecordForm = () => {
                 </select>
             </div>
 
-            <button type="submit">Add Record</button>
+            <button type="submit" className="button">Add Record</button>
 
         </form>
 
