@@ -64,5 +64,5 @@ export const useFinancialRecords = () => {
         );
     };
 
-    // return context;
+    return context
 };
