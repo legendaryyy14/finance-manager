@@ -38,12 +38,7 @@ export const FinancialRecordsProvider = ({
                 const newRecord = await response.json();
                 setRecords((prev) => [...prev, newRecord])
             }
-        } catch (err) {
-
-        }
-
-
-
+        } catch (err) {}
     }
     return (
         <FinancialRecordsContext.Provider value={{records, addRecord}}>
