@@ -1,4 +1,4 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext, useState } from "react";
 
 interface FinancialRecord {
     id?: string;
@@ -27,7 +27,7 @@ export const FinancialRecordsProvider = ({
 }) => {
     const [records, setRecords] = useState<FinancialRecord[]>([]);
 
-    const addRecord = (record: FinancialRecord) => {
+    const addRecord = async (record: FinancialRecord) => {
         const response = await fetch("http://localhost:3001/financial-records", {
             method: "POST",
             body: JSON.stringify(record)
@@ -35,7 +35,7 @@ export const FinancialRecordsProvider = ({
 
         try {
             if (response.ok) {
-                const newRecord = rawait esponse.json();
+                const newRecord = await response.json();
                 setRecords((prev) => [...prev, newRecord])
             }
         } catch (err) {
