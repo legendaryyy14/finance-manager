@@ -33,7 +33,7 @@ export const FinancialRecordsProvider = ({
   const fetchRecords = async () => {
     if (!user) return;
     const response = await fetch(
-      `http://localhost:3001/financial-records/getAllByUserID/${user?.id ?? ""}`
+      `http://localhost:3001/financial-records/getAllByUserID/${user.id}`
     );
 
     if (response.ok) {
